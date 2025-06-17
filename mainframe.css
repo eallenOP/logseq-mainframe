@@ -1,0 +1,333 @@
+/* Existing CSS for query */
+
+.cp__query-builder {
+  height: 0;
+  overflow: hidden;
+}
+
+.ls-block .custom-query>.th {
+  margin-bottom:0;
+}
+
+.custom-query>.th:hover + .cp__query-builder {
+  height: auto ;
+}
+
+/* Stargate Logseq Theme - Simplified */
+/* Inspired by the computer interfaces from Stargate SG-1/Atlantis */
+
+@import url('https://fonts.googleapis.com/css2?family=Aldrich:wght@400&display=swap');
+
+:root {
+  /* Core Stargate Colors */
+  --sg-primary: #d4ffff;
+  --sg-secondary: #0c4e40;
+  --sg-accent: #ecf0e0;
+  --sg-panel: #094b3f;
+  --sg-dark: #001122;
+  --sg-darker: #000a11;
+  --sg-border: #d4ffff;
+  --sg-text: #ccffff;
+  --sg-orange: #ff6600;
+  --sg-green: #00ff88;
+}
+
+/* Base Theme Variables */
+html[data-theme="dark"] {
+  --ls-primary-background-color: var(--sg-darker);
+  --ls-secondary-background-color: var(--sg-dark);
+  --ls-tertiary-background-color: var(--sg-panel);
+  --ls-quaternary-background-color: var(--sg-panel);
+  
+  --ls-primary-text-color: var(--sg-text);
+  --ls-secondary-text-color: #88ccdd;
+  --ls-title-text-color: var(--sg-accent);
+  --ls-head-text-color: var(--sg-accent);
+  
+  --ls-link-text-color: var(--sg-primary);
+  --ls-link-text-hover-color: var(--sg-accent);
+  --ls-alink-color: var(--sg-orange);
+  
+  --ls-active-primary-color: var(--sg-primary);
+  --ls-active-secondary-color: var(--sg-secondary);
+  
+  --ls-border-color: var(--sg-border);
+  --ls-secondary-border-color: var(--sg-secondary);
+  
+  --ls-block-bullet-color: var(--sg-primary);
+  --ls-block-bullet-border-color: var(--sg-border);
+  
+  --ls-tag-text-color: var(--sg-accent);
+  --ls-cloze-text-color: var(--sg-green);
+  --ls-icon-color: var(--sg-primary);
+  
+  --ls-search-background-color: var(--sg-panel);
+  --ls-search-text-color: var(--sg-text);
+  
+  --ls-selection-background-color: rgba(0, 212, 255, 0.2);
+  --ls-block-highlight-color: rgba(0, 212, 255, 0.1);
+  --ls-menu-hover-color: rgba(0, 212, 255, 0.1);
+}
+
+/* Body & Layout */
+body {
+  background: #000000; /* Black outer margin */
+  font-family: 'Arial', 'Helvetica', 'Verdana', sans-serif;
+  margin: 0;
+  padding: 15px; /* Creates the black margin */
+  box-sizing: border-box;
+}
+
+/* Main app container with border and rounded corners */
+#root {
+  background: var(--sg-darker);
+  border: 2px solid var(--sg-border);
+  border-radius: 12px;
+  box-shadow: 
+    0 0 20px rgba(0, 136, 170, 0.3),
+    inset 0 0 30px rgba(0, 212, 255, 0.1);
+  overflow: hidden;
+  height: calc(100vh - 30px); /* Account for padding */
+  position: relative;
+}
+
+/* Panels */
+#left-sidebar,
+#right-sidebar {
+  background: var(--sg-panel) !important;
+  border-color: var(--sg-border) !important;
+}
+
+#left-sidebar {
+  margin: 80px 30px;
+  border: 1px solid var(--sg-border);
+  height: calc(100vh - 110px); /* Account for top/bottom margins and border */
+  overflow-y: clip;
+}
+
+@media (min-width: 640px) {
+    .left-sidebar-inner>.wrap {
+        margin-top: 20px;
+    }
+}
+
+/* Right sidebar - different approach since it's a content panel */
+#right-sidebar {
+  background: var(--sg-panel) !important;
+  border-left: 2px solid var(--sg-border) !important;
+  margin-right: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  border-radius: 0 8px 8px 0; /* Round right corners to match container */
+  max-height: calc(100vh - 70px); /* Account for margins and avoid overflow */
+  overflow-y: auto;
+}
+
+#left-sidebar .sidebar-item,
+#right-sidebar .sidebar-item,
+.left-sidebar-inner,
+.right-sidebar-inner {
+  background: var(--sg-panel) !important;
+}
+
+#main-content-container {
+  background: var(--sg-darker);
+}
+
+#head {
+  border-bottom: 2px solid var(--sg-border);
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--sg-accent) !important;
+  font-family: 'Aldrich', 'Arial', sans-serif !important;
+  font-weight: 300 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px var(--sg-accent);
+  padding-left: 10px;
+  margin-left: -13px;
+}
+
+/* Page Title */
+h1.title {
+  color: var(--sg-accent) !important;
+  text-shadow: 0 0 8px var(--sg-accent);
+  font-weight: bold !important;
+}
+
+/* Links */
+a {
+  color: var(--sg-primary) !important;
+  text-shadow: 0 0 3px var(--sg-primary);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--sg-accent) !important;
+  text-shadow: 0 0 8px var(--sg-accent);
+  text-decoration: none;
+}
+
+/* Blocks */
+.ls-block:hover {
+  background: rgba(0, 212, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* Block Bullets */
+.bullet-container .bullet {
+  background: var(--sg-primary) !important;
+  border: 2px solid var(--sg-border) !important;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+  animation: stargate-pulse 3s infinite ease-in-out;
+}
+
+/* Tags */
+.tag {
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(12, 84, 64, 0.3)) !important;
+  border: 1px solid var(--sg-border) !important;
+  color: var(--sg-accent) !important;
+  border-radius: 12px;
+  text-shadow: 0 0 3px var(--sg-primary);
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+.tag:hover {
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.3), rgba(12, 84, 64, 0.4)) !important;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Code */
+code {
+  background: rgba(0, 212, 255, 0.1) !important;
+  color: var(--sg-green) !important;
+  border: 1px solid var(--sg-border);
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.CodeMirror {
+  background: var(--sg-dark) !important;
+  border: 1px solid var(--sg-border);
+  box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* Buttons */
+button {
+  background: #249f83;
+  border-radius: 0 !important;
+  color: var(--sg-text) !important;
+  font-weight: bold;
+  text-shadow: 0 0 2px var(--sg-primary);
+  transition: all 0.2s ease;
+}
+
+.button, .button.icon {
+  border: 1px solid var(--sg-primary) !important;
+}
+
+button:hover {
+  background: #4cdbba !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+/* Search */
+.cp__palette {
+  background: var(--sg-panel) !important;
+  border: 2px solid var(--sg-border) !important;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.cp__palette-input {
+  background: var(--sg-dark) !important;
+  border: 1px solid var(--sg-border) !important;
+  color: var(--sg-text) !important;
+}
+
+.cp__palette-item:hover,
+.cp__palette-item.selected {
+  background: rgba(0, 212, 255, 0.2) !important;
+}
+
+/* Tables */
+table {
+  border: 1px solid var(--sg-border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+th {
+  background: linear-gradient(180deg, var(--sg-secondary), var(--sg-primary)) !important;
+  color: var(--sg-text) !important;
+  text-shadow: 0 0 3px var(--sg-primary);
+}
+
+tr:hover {
+  background: rgba(0, 212, 255, 0.1) !important;
+}
+
+/* Block References */
+.block-ref {
+  background: rgba(0, 212, 255, 0.1) !important;
+  border: 1px solid var(--sg-border) !important;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.2);
+}
+
+/* Modals */
+.ui__modal {
+  background: var(--sg-panel) !important;
+  border: 2px solid var(--sg-border) !important;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+}
+
+/* Scrollbars - Desktop only */
+@media (hover: hover) and (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: var(--sg-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--sg-primary), var(--sg-secondary));
+    border-radius: 5px;
+    border: 1px solid var(--sg-border);
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  }
+}
+
+/* Animations */
+@keyframes stargate-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Mobile Support */
+@media (max-width: 768px) {
+  /* Better touch targets */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 16px;
+  }
+  
+  .tag {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  a {
+    min-height: 44px;
+    display: inline-block;
+    line-height: normal;
+  }
+}

@@ -1,0 +1,2 @@
+# logseq-mainframe
+Logseq theme
